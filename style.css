@@ -10,7 +10,16 @@ body {
     margin: auto;
     border: black;
     border-radius: 50px;
+    color: rgb(231, 235, 140);
 }
+
 #intro-card h1 {
     text-align: center;
+    font-family: 'Arial';
+    padding: 10px;
+}
+
+#intro-card p {
+    padding: 10px;
+    font-family: 'Arial';
 }
