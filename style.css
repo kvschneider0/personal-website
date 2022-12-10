@@ -1,13 +1,4 @@
-/* body {
-    background: linear-gradient(#5500c4, #6d008f);
-    background-attachment: fixed;
-} */
-
-/* body {
-    background: url('./bg1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
+/* Homepage */
 
 body {
     background-color: black;
@@ -47,6 +38,26 @@ body nav a {
     padding: 10px;
 }
 
+/* Thesis page */
+
 #body-thesis h1 {
+    color: white;
+}
+
+/* About me page */
+
+#body-about h1 {
+    color: white;
+}
+
+/* Resume page */
+
+#body-resume h1 {
+    color: white;
+}
+
+/* Projects page */
+
+#body-projects {
     color: white;
 }
