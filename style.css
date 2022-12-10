@@ -5,6 +5,9 @@ body {
 
 #title-card {
     background-color: white;
+    height: 400px;
+    width: 400px;
+    margin: auto;
 }
 
 h1 {
