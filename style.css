@@ -5,7 +5,7 @@ body {
 
 #intro-card {
     background-color: rgb(75, 67, 71);
-    height: 400px;
+    height: 200px;
     width: 800px;
     margin: auto;
     border-radius: 50px;
@@ -19,6 +19,7 @@ body {
 }
 
 #intro-card p {
-    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
     font-family: 'Arial';
 }
