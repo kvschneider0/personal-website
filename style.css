@@ -23,3 +23,7 @@ body {
     padding-right: 50px;
     font-family: 'Arial';
 }
+
+#thesis-temp {
+    background-color: grey;
+}
