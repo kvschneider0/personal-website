@@ -1,5 +1,10 @@
 body {
-    background: blue;
+    background: linear-gradient(#5500c4, #6d008f);
+    background-attachment: fixed;
+}
+
+#title-card {
+    background-color: white;
 }
 
 h1 {
