@@ -25,6 +25,20 @@ body {
     font-family: 'Arial';
 }
 
+.home-navbar {
+    background-color: grey;
+}
+
+body nav {
+    text-align: center;
+    margin: 20px;
+}
+
+body nav a {
+    padding: 10px;
+}
+
+
 /* Thesis */
 
 #thesis h2 {
