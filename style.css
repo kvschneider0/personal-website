@@ -4,7 +4,7 @@ body {
     background-color: black;
 }
 
-#intro-card {
+#intro {
     background-color: rgb(75, 67, 71);
     height: 200px;
     width: 600px;
@@ -13,13 +13,13 @@ body {
     color: rgb(231, 235, 140);
 }
 
-#intro-card h1 {
+#intro h1 {
     text-align: center;
     font-family: 'Arial';
     padding: 10px;
 }
 
-#intro-card p {
+#intro p {
     padding-left: 50px;
     padding-right: 50px;
     font-family: 'Arial';
@@ -38,26 +38,26 @@ body nav a {
     padding: 10px;
 }
 
-/* Thesis page */
+/* Thesis */
 
-#body-thesis h1 {
+#thesis h2 {
     color: white;
 }
 
-/* About me page */
+/* About me */
 
-#body-about h1 {
+#about h2 {
     color: white;
 }
 
-/* Resume page */
+/* Resume */
 
-#body-resume h1 {
+#resume h2 {
     color: white;
 }
 
-/* Projects page */
+/* Projects */
 
-#body-projects {
+#projects h2 {
     color: white;
 }
