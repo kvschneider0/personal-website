@@ -40,4 +40,13 @@ body {
 
 body nav {
     text-align: center;
+    margin: 20px;
+}
+
+body nav a {
+    padding: 10px;
+}
+
+#body-thesis h1 {
+    color: white;
 }
