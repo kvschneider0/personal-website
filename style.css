@@ -3,13 +3,14 @@ body {
     background-attachment: fixed;
 }
 
-#title-card {
-    background-color: white;
+#intro-card {
+    background-color: rgb(75, 67, 71);
     height: 400px;
-    width: 400px;
+    width: 800px;
     margin: auto;
+    border: black;
+    border-radius: 50px;
 }
-
-h1 {
+#intro-card h1 {
     text-align: center;
 }
