@@ -1,7 +1,15 @@
-/* Homepage */
-
 body {
     background-color: black;
+    position: relative;
+}
+
+body div {
+    align-self: center;
+    width: 1000px;
+    height: auto;
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px;
 }
 
 #intro {
@@ -25,19 +33,46 @@ body {
     font-family: 'Arial';
 }
 
-.home-navbar {
-    background-color: grey;
-}
-
-body nav {
+nav {
     text-align: center;
     margin: 20px;
 }
 
-body nav a {
+nav a {
     padding: 10px;
 }
 
+div {
+    background-color: grey;
+}
+
+/* About me */
+
+#about {
+    height: 300px;
+}
+
+#about h2 {
+    color: white;
+}
+
+#mugshot {
+    position: relative;
+    width: 50%;
+    float: left;
+}
+
+#mugshot img {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+
+#mugshot-description {
+    position: absolute;
+    width: 50%;
+    float: right;
+}
 
 /* Thesis */
 
@@ -45,11 +80,6 @@ body nav a {
     color: white;
 }
 
-/* About me */
-
-#about h2 {
-    color: white;
-}
 
 /* Resume */
 
