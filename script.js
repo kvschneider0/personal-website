@@ -1,3 +1,12 @@
-// const h2 = document.createElement('h2');
-// h2.textContent = 'This content added by JavaScript';
-// document.querySelector('body').appendChild(h2);
+const button = document.getElementById('button');
+const countElement = document.getElementById('count');
+
+let countValue = 0;
+
+function click() {
+    countValue += 1;
+    countElement.innerHTML = `count = ${countValue}`;
+}
+
+button.addEventListener('click', click);
+
