@@ -1,15 +1,13 @@
 // generate random Laplacian matrix
 
 export function generateLaplacianMatrix(n) {
-    adjacencyMatrix = generateAdjacencyMatrix(n);
+    const adjacencyMatrix = generateAdjacencyMatrix(n);
     for (let i = 0; i < n; i++) {
         const rowSum = adjacencyMatrix[i].reduce((sum, x) => sum + x);
         adjacencyMatrix[i][i] = -rowSum;
     }
-    const result = changeMatrixParity([...adjacencyMatrix]);
 
-
-    return result;
+    return changeMatrixParity([...adjacencyMatrix]);
 }
 
 // generate random Adjacency matrix
@@ -37,7 +35,7 @@ function generateAdjacencyMatrix(n) {
 
 // prints readable matrix in console
 
-function printMatrix(matrix) {
+export function printMatrix(matrix) {
     for (let i = 0; i < matrix.length; i++) {
         let row = '|';
         for (let j = 0; j < matrix.length; j++) {
