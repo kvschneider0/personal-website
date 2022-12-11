@@ -66,11 +66,14 @@ div {
     width: 200px;
     height: 200px;
     position: absolute;
+    top: -30px;
+    left: 30px;
+    border-radius: 50%;
 }
 
 #mugshot-description {
-    position: absolute;
-    width: 50%;
+    position: relative;
+    width: 75%;
     float: right;
 }
 
