@@ -1,27 +1,19 @@
-import { generateLaplacianMatrix } from "./matrix-generation";
+import { generateLaplacianMatrix } from "./matrix-generation.js";
 
 const button = document.getElementById('button');
 const output = document.getElementById('output');
-const countElement = document.getElementById('output');
-
-let countValue = 0;
 
 function click() {
-    countValue += 1;
-    countElement.innerHTML = `count = ${countValue}`;
+    const newHTML = matrixToHTML(generateLaplacianMatrix(5));
+    output.innerHTML = newHTML;
+
+    console.log('clicked');
+    Alert('clicked');
 }
-
-// function click() {
-//     const newHTML = matrixToHTML(generateLaplacianMatrix(5));
-//     output.innerHTML = newHTML;
-
-//     console.log('clicked');
-//     Alert('clicked');
-// }
 
 function matrixToHTML(matrix) {
     const n = matrix.length;
-    let result = '<table>';
+    let result = '';
 
     for (let i = 0; i < n; i++) {
         result += '<tr>';
@@ -30,10 +22,10 @@ function matrixToHTML(matrix) {
         }
         result += '</tr>';
     }
-    result += '</table>';
 
     return result;
 }
 
 button.addEventListener('click', click);
+
 
