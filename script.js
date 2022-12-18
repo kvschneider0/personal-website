@@ -21,7 +21,7 @@ function matrixToHTML(matrix) {
             tempRow += `${num}&`;
         }
         tempRow = tempRow.slice(0, -1); // remove final '&'
-        tempRow += '\\'
+        tempRow += '\\\\'
         result += tempRow;
     }
     result += '\end{bmatrix}\\)';

@@ -26,29 +26,12 @@ body div {
     font-family: 'Arial';
 }
 
-#intro {
-    background-color: rgb(75, 67, 71);
-    height: 250px;
-    width: 600px;
-    margin: auto;
-    border-radius: 50px;
-    color: rgb(231, 235, 140);
-}
+/* Intro */
 
-#intro h1 {
+#intro-div {
+    height: 150px;
+    width: 400px;
     text-align: center;
-    font-family: 'Arial';
-    padding: 10px;
-}
-
-#intro p {
-    padding-left: 50px;
-    padding-right: 50px;
-    font-family: 'Arial';
-}
-
-div {
-    background-color: grey;
 }
 
 /* About me */
