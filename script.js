@@ -1,4 +1,4 @@
-import { generateLaplacianMatrix } from "./matrix-generation.js";
+import { generateLaplacianMatrix } from "./matrix.js";
 
 const button = document.getElementById('button');
 const output = document.getElementById('output');
