@@ -101,9 +101,9 @@ div {
     display: block;
 } 
 
-/* #thesis table {
-    display: grid;
-} */
+#thesis table {
+    margin: 0 auto;
+}
 
 /* Projects */
 
