@@ -13,7 +13,7 @@ function click() {
 
 function matrixToHTML(matrix) {
     const n = matrix.length;
-    let result = '\\begin{bmatrix}';
+    let result = '\\(\\begin{bmatrix}';
 
     for (const row of matrix) {
         let tempRow = '';
@@ -24,7 +24,7 @@ function matrixToHTML(matrix) {
         tempRow += '\\'
         result += tempRow;
     }
-    result += '\end{bmatrix}';
+    result += '\end{bmatrix}\\)';
 
     return result;
 
