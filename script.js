@@ -1,7 +1,7 @@
 import { generateLaplacianMatrix } from "./matrix.js";
 
 const button = document.getElementById('button');
-const output = document.getElementById('output');
+const output = document.getElementById('matrix-display');
 
 function click() {
     const newHTML = matrixToHTML(generateLaplacianMatrix(5));
