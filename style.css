@@ -23,11 +23,12 @@ body div {
     background-color: rgb(75, 67, 71);
     border-radius: 50px;
     color: rgb(231, 235, 140);
+    font-family: 'Arial';
 }
 
 #intro {
     background-color: rgb(75, 67, 71);
-    height: 200px;
+    height: 250px;
     width: 600px;
     margin: auto;
     border-radius: 50px;
@@ -44,15 +45,6 @@ body div {
     padding-left: 50px;
     padding-right: 50px;
     font-family: 'Arial';
-}
-
-nav {
-    text-align: center;
-    margin: 20px;
-}
-
-nav a {
-    padding: 10px;
 }
 
 div {
@@ -92,7 +84,9 @@ div {
 
 /* Resume */
 
-
+#resume-link {
+    text-align: center;
+}
 
 /* Thesis */
 
@@ -100,7 +94,16 @@ div {
     color: white;
 }
 
+#matrix-display {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+} 
 
+/* #thesis table {
+    display: grid;
+} */
 
 /* Projects */
 
