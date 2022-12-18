@@ -33,7 +33,7 @@ function matrixToHTML(matrix) {
         tempRow += '\\\\'
         result += tempRow;
     }
-    result += '\end{bmatrix}\\)';
+    result += '\\end{bmatrix}\\)';
 
     return result;
 
