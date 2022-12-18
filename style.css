@@ -65,16 +65,11 @@ body div {
     float: right;
 }
 
-/* Resume */
-
-#resume-link {
-    text-align: center;
-}
-
 /* Thesis */
 
-#thesis h2 {
+#thesis-title {
     color: white;
+    text-align: center;
 }
 
 #matrix-display {
@@ -86,6 +81,13 @@ body div {
 
 #thesis table {
     margin: 0 auto;
+}
+
+
+/* Resume */
+
+#resume-link {
+    text-align: center;
 }
 
 /* Projects */

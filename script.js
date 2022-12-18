@@ -6,9 +6,6 @@ const output = document.getElementById('matrix-display');
 function click() {
     const newHTML = matrixToHTML(generateLaplacianMatrix(5));
     output.innerHTML = newHTML;
-
-    console.log('clicked');
-    Alert('clicked');
 }
 
 function matrixToHTML(matrix) {
