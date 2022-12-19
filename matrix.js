@@ -1,7 +1,10 @@
 // get random Laplacian matrix as LaTeX 
 
-function generateLaplacianHTML(n) {
-    return matrixToHTML(generateLaplacianMatrix(n));
+function generateEquationHTML(n) {
+    let result = '$$L=';
+    const matrixHTML = matrixToHTML(generateLaplacianMatrix(n));
+    result += matrixHTML.slice(2);
+    return result;
 }
 
 // writes LaTeX code which generates matrix 
@@ -126,5 +129,5 @@ function changeMatrixParity(matrix) {
     return result;
 }
 
-export { generateLaplacianHTML, generateLaplacianMatrix, printMatrix }
+export { generateEquationHTML, generateLaplacianMatrix, printMatrix }
 
