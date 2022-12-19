@@ -1,4 +1,5 @@
-// get random Laplacian matrix as LaTeX 
+// SECTION 1: Generate matrix & it's LaTeX code for display
+// generate equation LaTeX
 
 function generateEquationHTML(n) {
     let result = '$$L=';
@@ -130,4 +131,7 @@ function changeMatrixParity(matrix) {
 }
 
 export { generateEquationHTML, generateLaplacianMatrix, printMatrix }
+
+
+// SECTION 2: Eigenvectors
 
