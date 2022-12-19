@@ -4,7 +4,7 @@ const button = document.getElementById('button');
 const output = document.getElementById('matrix-display');
 
 function click() {
-    const newHTML = matrixToHTML(generateLaplacianMatrix(5));
+    const newHTML = matrixToHTML(generateLaplacianMatrix(3));
     output.innerHTML = newHTML;
 }
 
@@ -21,6 +21,7 @@ function matrixToHTML(matrix) {
         tempRow += '\\\\'
         result += tempRow;
     }
+
     result += '\\end{bmatrix}\\)';
 
     return result;
