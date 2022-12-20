@@ -1,15 +1,7 @@
-function getControlSet(n) {
-    let binaryString = '';
-    for (let i = 1; i < Math.pow(2, n)-1; i++) {
-        binaryString += i.toString(2).padStart(n, '0');
-    }
-
-    const binaryArray = binaryString.split('').map(Number);
-    const controlSet = [];
-    while (binaryArray.length) { controlSet.push(binaryArray.splice(0, n)) };
-
-
-    return controlSet;
+function ffs() {
+    return { first: 0, second: 1 };
 }
 
-console.log(getControlSet(3));
+const { first, second } = ffs();
+
+console.log(first, second)

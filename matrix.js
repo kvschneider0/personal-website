@@ -1,3 +1,13 @@
+export { generateMatrix, generateEquationHTML }
+
+function generateMatrix(n) {
+    const matrix = generateLaplacianMatrix(n);
+    const matrixHTML = matrixToHTML(matrix);
+    const matrixControllability = pbhTest(matrix);
+
+    return  [matrixHTML, matrixControllability]; //make this object in the future?
+}
+
 // SECTION 1: Generate matrix & it's LaTeX code for display
 // generate equation LaTeX
 
@@ -130,13 +140,10 @@ function changeMatrixParity(matrix) {
     return result;
 }
 
-export { generateEquationHTML, generateLaplacianMatrix, printMatrix }
-
-
 // SECTION 2: Eigenvectors
 
 //IMPORTANT: following line should be commented when running in the browser. For testing locally in npm, make sure it is uncommented.
-import * as math from 'mathjs';
+// import * as math from 'mathjs';
 
 function pbhTest(matrix) {
     const n = matrix.length;
@@ -145,10 +152,7 @@ function pbhTest(matrix) {
     let zeroCount = 0;
 
     for (const controlVector of controlSet) {
-        // console.log('CV:', controlVector);
         for (const eigenVector of eigenVectors) {
-            // console.log('EV:', eigenVector)
-            // console.log(math.dot(controlVector, eigenVector));
             const innerProduct = zeroFloatCorrection(math.dot(controlVector, eigenVector));
             if (innerProduct == 0) {
                 zeroCount += 1;
