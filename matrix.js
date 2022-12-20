@@ -186,7 +186,6 @@ function pbhTest(matrix) {
         return 'completely uncontrollable';
     }    
  
-
     for (const controlVector of controlSet) {
         for (const eigenVector of eigenVectors) {
             const innerProduct = zeroFloatCorrection(math.dot(controlVector, eigenVector));
