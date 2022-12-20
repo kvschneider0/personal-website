@@ -135,5 +135,13 @@ export { generateEquationHTML, generateLaplacianMatrix, printMatrix }
 
 // SECTION 2: Eigenvectors
 
+//IMPORTANT: following line should be commented when running in the browser. For testing locally in npm, make sure it is uncommented.
+// import * as math from 'mathjs';
+
+const mat = generateLaplacianMatrix(3);
+printMatrix(mat);
+
+const eigenState = math.eigs(mat);
+console.log(eigenState);
 
 
