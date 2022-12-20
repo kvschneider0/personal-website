@@ -92,6 +92,11 @@ body div {
     width: 40px;
 }
 
+#thesis-link-div {
+    text-align: center;
+    width: 200px;
+}
+
 /* #input-div {
     text-align: center;
 } */
