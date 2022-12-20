@@ -136,12 +136,69 @@ export { generateEquationHTML, generateLaplacianMatrix, printMatrix }
 // SECTION 2: Eigenvectors
 
 //IMPORTANT: following line should be commented when running in the browser. For testing locally in npm, make sure it is uncommented.
-// import * as math from 'mathjs';
+import * as math from 'mathjs';
+
+function pbhTest(matrix) {
+    const n = matrix.length;
+    const eigenVectors = getEigenVectors(matrix);
+    const controlSet = getControlSet(n);
+    let zeroCount = 0;
+
+    for (const controlVector of controlSet) {
+        // console.log('CV:', controlVector);
+        for (const eigenVector of eigenVectors) {
+            // console.log('EV:', eigenVector)
+            // console.log(math.dot(controlVector, eigenVector));
+            const innerProduct = zeroFloatCorrection(math.dot(controlVector, eigenVector));
+            if (innerProduct == 0) {
+                zeroCount += 1;
+            }
+        }
+    }
+    if (zeroCount == math.pow(2, n) - 2) {
+        return 'completely uncontrollable';
+    } else if (zeroCount == 0) {
+        return 'essentially controllable';
+    } else {
+        return 'conditionally controllable';
+    }
+}
 
 const mat = generateLaplacianMatrix(3);
 printMatrix(mat);
+console.log(pbhTest(mat));
 
-const eigenState = math.eigs(mat);
-console.log(eigenState);
+function getEigenVectors(matrix) {
+    let result = [];
 
+    const eigen = math.eigs(matrix);
+    const vectors = eigen.vectors;
+    for (let i = 0; i < vectors.length; i++) {
+        result.push(math.column(vectors, i).flat().map(zeroFloatCorrection));
+    }
+
+    return result;
+}
+
+function zeroFloatCorrection(x) {
+    if (math.abs(x) < 1e-10) {
+        return 0;
+    } else {
+        return x;
+    }
+}
+
+function getControlSet(n) {
+    let binaryString = '';
+    for (let i = 1; i < Math.pow(2, n)-1; i++) {
+        binaryString += i.toString(2).padStart(n, '0');
+    }
+
+    const binaryArray = binaryString.split('').map(Number);
+    const controlSet = [];
+    while (binaryArray.length) { controlSet.push(binaryArray.splice(0, n)) };
+
+
+    return controlSet;
+}
 
