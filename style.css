@@ -72,6 +72,10 @@ body div {
     text-align: center;
 }
 
+#input-div {
+    text-align: center;
+}
+
 #matrix-display {
     text-align: center;
     margin-left: auto;
@@ -83,6 +87,14 @@ body div {
 #thesis table {
     margin: 0 auto;
 }
+
+#dim {
+    width: 40px;
+}
+
+/* #input-div {
+    text-align: center;
+} */
 
 
 /* Resume */
