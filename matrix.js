@@ -145,11 +145,47 @@ function changeMatrixParity(matrix) {
 //IMPORTANT: following line should be commented when running in the browser. For testing locally in npm, make sure it is uncommented.
 // import * as math from 'mathjs';
 
+//Big test run
+function test() {
+    const result = { cu: 0, cc: 0, ec: 0 };
+
+    let used = [];
+
+    for (let i = 0; i < 10000; i++) {
+        const mat = generateLaplacianMatrix(8);
+        if (used.includes(mat)) {
+            continue;
+        }
+        used.push(mat);
+        const controllability = pbhTest(mat);
+        switch (controllability) {
+            case 'completely uncontrollable':
+                result.cu++;
+                break;
+
+            case 'conditionally controllable':
+                result.cc++;
+                break;
+            case 'essentially controllable':
+                result.ec++;
+                break;
+        }
+    }
+    console.log(result);
+}
+// test();
+
 function pbhTest(matrix) {
     const n = matrix.length;
-    const eigenVectors = getEigenVectors(matrix);
+    const [ eigenValues, eigenVectors ] = getEigenState(matrix);
     const controlSet = getControlSet(n);
     let zeroCount = 0;
+
+    const eigenValuesUnique = [...new Set(eigenValues)];
+    if (eigenValues.length != eigenValuesUnique.length) {
+        return 'completely uncontrollable';
+    }    
+ 
 
     for (const controlVector of controlSet) {
         for (const eigenVector of eigenVectors) {
@@ -168,20 +204,21 @@ function pbhTest(matrix) {
     }
 }
 
-const mat = generateLaplacianMatrix(3);
+const mat = generateLaplacianMatrix(6);
 printMatrix(mat);
 console.log(pbhTest(mat));
 
-function getEigenVectors(matrix) {
-    let result = [];
+function getEigenState(matrix) {
+    let resultVectors = []; 
 
-    const eigen = math.eigs(matrix);
-    const vectors = eigen.vectors;
+    const eigenState = math.eigs(matrix);
+    const resultValues = eigenState.values.map(zeroFloatCorrection);
+    const vectors = eigenState.vectors;
     for (let i = 0; i < vectors.length; i++) {
-        result.push(math.column(vectors, i).flat().map(zeroFloatCorrection));
+        resultVectors.push(math.column(vectors, i).flat().map(zeroFloatCorrection));
     }
 
-    return result;
+    return [ resultValues, resultVectors ];
 }
 
 function zeroFloatCorrection(x) {
