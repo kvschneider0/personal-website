@@ -1,12 +1,44 @@
+//IMPORTANT: following two lines should be commented when running in the browser. For testing locally in npm, make sure it is uncommented.
+// import * as math from 'mathjs';
+// import * as vis from 'vis';
 export { generateMatrix, generateEquationHTML }
 
 function generateMatrix(n) {
     const matrix = generateLaplacianMatrix(n);
+    const graphData = getPlottingData(matrix);
     const matrixHTML = matrixToHTML(matrix);
     const matrixControllability = pbhTest(matrix);
 
-    return  [matrixHTML, matrixControllability]; //make this object in the future?
+    return  [graphData, matrixHTML, matrixControllability]; //make this object in the future?
 }
+
+function getPlottingData(matrix) {
+    const n = matrix.length;
+
+    let nodesPrelim = [];
+    for (let i = 0; i < n; i++) {
+        nodesPrelim.push({ id: i, label: `${i}` });
+    }
+    let nodes = new vis.DataSet(nodesPrelim);
+
+    let edgesPrelim = [];
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (j > i) {
+                if (matrix[i][j] == -1) {
+                    edgesPrelim.push({ from: i, to: j })
+                }
+            }
+        }
+    }
+    let edges = new vis.DataSet(edgesPrelim);
+
+    return { nodes: nodes, edges: edges };
+}
+
+const mat = generateLaplacianMatrix(6);
+printMatrix(mat);
+console.log(getPlottingData(mat));
 
 // SECTION 1: Generate matrix & it's LaTeX code for display
 // generate equation LaTeX
@@ -142,9 +174,6 @@ function changeMatrixParity(matrix) {
 
 // SECTION 2: Eigenvectors
 
-//IMPORTANT: following line should be commented when running in the browser. For testing locally in npm, make sure it is uncommented.
-// import * as math from 'mathjs';
-
 //Big test run
 function test() {
     const result = { cu: 0, cc: 0, ec: 0 };
@@ -202,10 +231,6 @@ function pbhTest(matrix) {
         return 'conditionally controllable';
     }
 }
-
-const mat = generateLaplacianMatrix(6);
-printMatrix(mat);
-console.log(pbhTest(mat));
 
 function getEigenState(matrix) {
     let resultVectors = []; 

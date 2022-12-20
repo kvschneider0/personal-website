@@ -1,6 +1,7 @@
 {
     "type": "module",
     "dependencies": {
-        "mathjs": "^11.5.0"
+        "mathjs": "^11.5.0",
+        "vis": "^4.21.0-EOL"
     }
 }
