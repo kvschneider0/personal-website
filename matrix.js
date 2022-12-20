@@ -134,4 +134,14 @@ export { generateEquationHTML, generateLaplacianMatrix, printMatrix }
 
 
 // SECTION 2: Eigenvectors
+import { eigs, multiply, column, transpose } from 'mathjs';
+const H = [[5, 2.3], [2.3, 1]]
+const ans = eigs(H) // returns {values: [E1,E2...sorted], vectors: [v1,v2.... corresponding vectors as columns]}
+console.log(ans);
+const E = ans.values
+const U = ans.vectors
+multiply(H, column(U, 0)) // returns multiply(E[0], column(U, 0))
+const UTxHxU = multiply(transpose(U), H, U) // diagonalizes H
+E[0] == UTxHxU[0][0]  // returns true
+
 
