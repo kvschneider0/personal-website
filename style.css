@@ -34,6 +34,10 @@ body div {
     text-align: center;
 }
 
+#intro-div a {
+    padding: 10px;
+}
+
 /* About me */
 
 #about {
