@@ -1,9 +1,9 @@
 import { generateMatrix } from "./matrix.js";
 
-const button = document.getElementById('button');
-const mathOutput = document.getElementById('matrix-math-div');
-const controllabilityOutput = document.getElementById('matrix-controllability-div');
+const button = document.getElementById('button'); // button which triggers creation of new random graph
 const graphOutput = document.getElementById('graph-display-div');
+const mathOutput = document.getElementById('matrix-math-div'); 
+const controllabilityOutput = document.getElementById('matrix-controllability-div'); 
 
 let graphOptions = {
     edges: {
@@ -13,8 +13,7 @@ let graphOptions = {
 };
 
 function click() {
-    // get user dimension input
-    const value = document.getElementById('dim');
+    const value = document.getElementById('dim'); // input element for number of nodes 
     const dim = parseInt(value.value, 10);
     // generate random matrix
     const [graphData, newHTML, controllability]  = generateMatrix(dim);
