@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" type="module"></script>
+    <script src="matrix-generation.js" type="module"></script>
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- math.js -->
+    <script src="https://unpkg.com/mathjs@11.5.0/lib/browser/math.js"></script>
+    <!-- vis -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+        <nav>
+          <a href="./index.html">Home</a>
+          <a href="./about.html">About</a>
+          <a href="https://github.com/Schnyle">GitHub</a>
+          <a href="./Resume.pdf">Resume</a>
+          <a href="">Contact</a>
+          </ul>
+        </nav>
+      </header>
+      <div class="body-div" id="thesis">
+        <div id="thesis-title">
+          <h2>Uncontrollable Networks for Laplacian Leader-Follower Dynamics</h2>
+          <h3>by K.V. Schneider</h3>
+          <h3>University of Colorado Boulder - Department of Mathematics - 2021</h3>
+        </div>
+        <div id="thesis-dynamic-div">
+          <div id="input-div">
+            Generate new random graph:
+            <input id="button" type="button" value="Click Me!"/>
+            <br>
+            Choose number of nodes:
+            <input id="dim" type="number" type="number" value="5" min="3" max="10"/> <!-- This input can sometimes make the previous input not trigger. -->
+          </div>
+          <div id="graph-display-div"></div>
+          <div id="matrix-math-div"></div>
+          <div id="matrix-controllability-div"></div>
+        </div>
+        <div id="thesis-abstract-div">
+          <em>Abstract:</em>
+          <p>
+            In this paper, we study characterizations of controllability for Laplacian leader-follower dynamics. Our discussion relies on the classification of graphs (networks) into three controllability classes: essentially controllable, completely uncontrollable, and conditionally controllable. In particular, this paper will show characteristics of graphs and their Laplacian matrices which give rise to complete uncontrollability. The controllability classes mentioned require the additional specification of the control vectors; here, we focus on the set of binary control vectors. We show that any Laplacian matrix with repeated eigenvalues will always have completely uncontrollable Laplacian leader-follower dynamics. This fact will allow us to make several deductions regarding the controllability properties of certain graph structures. Specifically, we prove that every circulant graph will have completely uncontrollable Laplacian leader-follower dynamics. We also show that for any biregular graph, if the difference in size between the two vertex sets is greater than one, then the Laplacian leader-follower dynamics are completely uncontrollable. In addition, we prove a similar bound for bipartite graphs in general.
+          </p>
+        </div>
+        <div id="thesis-link-div">
+          <a href="K._Schneider_Honors_Thesis.pdf">link to my honors thesis</a>
+        </div>
+      </div>
+  </body>
+</html>
