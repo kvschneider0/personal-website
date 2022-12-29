@@ -1,78 +1,17 @@
 body {
-    background-color: black;
-    position: relative;
-}
-
-body div {
-    align-self: center;
-    width: 1000px;
-    height: auto;
-    margin: auto;
-    margin-top: 30px;
-    padding: 5px;
-    background-color: rgb(75, 67, 71);
+    background-color: #111;
 }
 
 .body-div {
     align-self: center;
-    width: 1000px;
+    width: 100%;
     height: auto;
     margin: auto;
     margin-top: 30px;
     padding: 15px;
     background-color: rgb(75, 67, 71);
-    border-radius: 50px;
     color: rgb(231, 235, 140);
     font-family: 'Arial';
-}
-
-/* Header */
-
-.header {
-    background: grey;
-}
-
-/* Intro */
-
-#intro-div {
-    height: 150px;
-    width: 400px;
-    text-align: center;
-}
-
-#intro-div a {
-    padding: 10px;
-}
-
-/* About me */
-
-#about {
-    height: 300px;
-}
-
-#about h2 {
-    color: white;
-}
-
-#mugshot {
-    position: relative;
-    width: 50%;
-    float: left;
-}
-
-#mugshot img {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    top: -30px;
-    left: 30px;
-    border-radius: 50%;
-}
-
-#mugshot-description {
-    position: relative;
-    width: 75%;
-    float: right;
 }
 
 /* Thesis */
@@ -130,22 +69,4 @@ body div {
 #thesis-link-div {
     text-align: center;
     width: 200px;
-}
-
-/* #input-div {
-    text-align: center;
-} */
-
-
-/* Resume */
-
-#resume-link {
-    text-align: center;
-    width: 200px;
-}
-
-/* Projects */
-
-#projects h2 {
-    color: white;
 }
