@@ -1,4 +1,4 @@
-import { generateMatrix } from "./matrix.js";
+import { getMatrixData } from "./matrix.js";
 
 const button = document.getElementById('button'); // button which triggers creation of new random graph
 const graphOutput = document.getElementById('graph-display-div');
@@ -31,7 +31,7 @@ function clickButton() {
     const value = document.getElementById('dim'); // input element for number of nodes 
     const dim = parseInt(value.value, 10);
     // generate random matrix
-    const [graphData, newHTML, controllability]  = generateMatrix(dim);
+    const [graphData, newHTML, controllability]  = getMatrixData(dim);
     // Draw graph
     let network = new vis.Network(graphOutput, graphData, graphOptions);
     // write new HTML elements

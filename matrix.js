@@ -1,15 +1,17 @@
 //IMPORTANT: following two lines should be commented when running in the browser. For testing locally in npm, make sure it is uncommented.
 // import * as math from 'mathjs';
 // import * as vis from 'vis';
-export { generateMatrix, generateEquationHTML }
 
-function generateMatrix(n) {
+export { getMatrixData }
+
+function getMatrixData(n) {
     const matrix = generateLaplacianMatrix(n);
     const graphData = getPlottingData(matrix);
-    const matrixHTML = matrixToHTML(matrix);
-    const matrixControllability = pbhTest(matrix);
+    const [ eigenValues, eigenVectors ] = getEigenState(matrix);
+    const controllability = pbhTest2(matrix, eigenValues, eigenVectors);
+    const matrixHTML = matrixToLatex(matrix, eigenValues);
 
-    return  [graphData, matrixHTML, matrixControllability]; //make this object in the future?
+    return  [graphData, matrixHTML, controllability];
 }
 
 function getPlottingData(matrix) {
@@ -37,20 +39,13 @@ function getPlottingData(matrix) {
 }
 
 // SECTION 1: Generate matrix & it's LaTeX code for display
-// generate equation LaTeX
-
-function generateEquationHTML(n) {
-    let result = '$$L=';
-    const matrixHTML = matrixToHTML(generateLaplacianMatrix(n));
-    result += matrixHTML.slice(2);
-    return result;
-}
 
 // writes LaTeX code which generates matrix 
 
-function matrixToHTML(matrix) {
+function matrixToLatex(matrix, eigenValues) {
     const n = matrix.length;
-    let result = '$$\\begin{bmatrix}';
+    // draw matrix
+    let result = '$$L=\\begin{bmatrix}';
 
     for (const row of matrix) {
         let tempRow = '';
@@ -61,8 +56,17 @@ function matrixToHTML(matrix) {
         tempRow += '\\\\'
         result += tempRow;
     }
-
     result += '\\end{bmatrix}$$';
+    
+    // draw eigen values
+    result += '$$\\textit{eigenvalues:}\\left\\{'
+    for (let eigenValue of eigenValues) {
+        result += `${Math.round(eigenValue * 100) / 100},`;
+        console.log(eigenValue, Math.round(eigenValue));
+    }
+    result += '\\right\\}$$'
+
+    console.log(result);
 
     return result;
 
@@ -203,6 +207,34 @@ function test() {
 function pbhTest(matrix) {
     const n = matrix.length;
     const [ eigenValues, eigenVectors ] = getEigenState(matrix);
+    const controlSet = getControlSet(n);
+    let zeroCount = 0;
+
+    const eigenValuesUnique = [...new Set(eigenValues)];
+    if (eigenValues.length != eigenValuesUnique.length) {
+        return 'completely uncontrollable';
+    }    
+ 
+    for (const controlVector of controlSet) {
+        for (const eigenVector of eigenVectors) {
+            const innerProduct = zeroFloatCorrection(math.dot(controlVector, eigenVector));
+            if (innerProduct == 0) {
+                zeroCount += 1;
+            }
+        }
+    }
+    if (zeroCount == math.pow(2, n) - 2) {
+        return 'completely uncontrollable';
+    } else if (zeroCount == 0) {
+        return 'essentially controllable';
+    } else {
+        return 'conditionally controllable';
+    }
+}
+
+// doesn't calculate estates
+function pbhTest2(matrix, eigenValues, eigenVectors) {
+    const n = matrix.length;
     const controlSet = getControlSet(n);
     let zeroCount = 0;
 
