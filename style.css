@@ -1,5 +1,7 @@
 body {
     background-color: #111;
+    margin-top: 40px;
+    padding: 30px;
 }
 
 .body-div {
@@ -13,6 +15,36 @@ body {
 
 #intro-div {
     text-align: center;
+}
+
+/* Nav Bar */
+
+header {
+    background-color: grey;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#large-nav-entry {
+    margin-right: 900px;
 }
 
 /* Thesis */
