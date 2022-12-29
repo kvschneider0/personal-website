@@ -110,3 +110,10 @@ header li a img {
     color: #fff;
     text-decoration: none;
 }
+
+#thesis-link-div img {
+    width: 100%;
+    display: block;
+    margin: 20px;
+}   
+
