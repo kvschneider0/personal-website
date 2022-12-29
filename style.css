@@ -11,6 +11,10 @@ body {
     font-family: 'Arial';
 }
 
+#intro-div {
+    text-align: center;
+}
+
 /* Thesis */
 
 #thesis-title {
