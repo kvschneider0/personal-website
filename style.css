@@ -48,6 +48,10 @@ header li a {
     text-decoration: none;
 }
 
+header li a img {
+    height: 20px;
+}
+
 #large-nav-entry {
     margin-right: 900px;
 }
