@@ -70,6 +70,8 @@ header li a img {
 #thesis-dynamic-div {
     border-style: solid;
     border-width: 5px;
+    width: 80%;
+    margin: auto;
 }
 
 #thesis-dynamic-div div {
@@ -82,12 +84,18 @@ header li a img {
     width: 200px;
 }
 
+#thesis-display-container {
+    text-align: center;
+}
+
 #graph-display-div {
     height: 300px;
     padding: 50px;
     border-style: solid;
     border-width: 1px;
     width: 400px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 #dim {
@@ -95,11 +103,9 @@ header li a img {
 }
 
 #matrix-math-div {
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
     width: 200px;
+    display: inline-block;
+    vertical-align: top;
 } 
 
 #matrix-controllability-div {
@@ -112,8 +118,13 @@ header li a img {
 }
 
 #thesis-link-div img {
-    width: 100%;
+    width: 75%;
     display: block;
-    margin: 20px;
+    margin: auto;
 }   
 
+#thesis-link-div img:hover {
+    transform: scale(1.02);
+    transition: 0.5s;
+    z-index: 102;
+}   
