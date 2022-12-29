@@ -6,11 +6,8 @@ body {
     align-self: center;
     width: 100%;
     height: auto;
-    margin: auto;
-    margin-top: 30px;
-    padding: 15px;
-    background-color: rgb(75, 67, 71);
-    color: rgb(231, 235, 140);
+    background-color: #111;
+    color: #fff;
     font-family: 'Arial';
 }
 
