@@ -28,7 +28,7 @@ body div {
 
 /* Header */
 
-#header {
+.header {
     background: grey;
 }
 
