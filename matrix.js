@@ -36,10 +36,6 @@ function getPlottingData(matrix) {
     return { nodes: nodes, edges: edges };
 }
 
-const mat = generateLaplacianMatrix(6);
-printMatrix(mat);
-console.log(getPlottingData(mat));
-
 // SECTION 1: Generate matrix & it's LaTeX code for display
 // generate equation LaTeX
 

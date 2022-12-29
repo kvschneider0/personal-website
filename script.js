@@ -2,8 +2,23 @@ import { generateMatrix } from "./matrix.js";
 
 const button = document.getElementById('button'); // button which triggers creation of new random graph
 const graphOutput = document.getElementById('graph-display-div');
-const mathOutput = document.getElementById('thesis-latex-div'); 
 const controllabilityOutput = document.getElementById('matrix-controllability-div'); 
+const mathOutput = document.getElementById('thesis-latex-div'); 
+
+// mostly copied from source
+const collapsible = document.getElementsByClassName('collapsible');
+let i;
+for (i = 0; i < collapsible.length; i++) {
+    collapsible[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    let content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
 
 let graphOptions = {
     edges: {
@@ -12,7 +27,7 @@ let graphOptions = {
     }
 };
 
-function click() {
+function clickButton() {
     const value = document.getElementById('dim'); // input element for number of nodes 
     const dim = parseInt(value.value, 10);
     // generate random matrix
@@ -25,8 +40,9 @@ function click() {
     // tell MathJax (for LaTeX) to look for new code
     MathJax.typeset();
 }
-click();
 
-button.addEventListener('click', click);
+button.addEventListener('click', clickButton);
+
+clickButton();
 
 
