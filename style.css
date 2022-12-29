@@ -26,6 +26,12 @@ body div {
     font-family: 'Arial';
 }
 
+/* Header */
+
+#header {
+    background: grey;
+}
+
 /* Intro */
 
 #intro-div {
