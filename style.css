@@ -79,9 +79,9 @@ header li a img {
     padding: 10px;
 }
 
-#input-div {
+#thesis-input-div {
     text-align: center;
-    width: 200px;
+    width: auto;
 }
 
 #thesis-display-container {
