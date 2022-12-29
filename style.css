@@ -17,6 +17,11 @@ body {
     text-align: center;
 }
 
+#intro-div img {
+    height: 200px;
+    border-radius: 50%;
+}
+
 /* Nav Bar */
 
 header {
