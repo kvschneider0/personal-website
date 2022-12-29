@@ -2,7 +2,7 @@ import { generateMatrix } from "./matrix.js";
 
 const button = document.getElementById('button'); // button which triggers creation of new random graph
 const graphOutput = document.getElementById('graph-display-div');
-const mathOutput = document.getElementById('matrix-math-div'); 
+const mathOutput = document.getElementById('thesis-latex-div'); 
 const controllabilityOutput = document.getElementById('matrix-controllability-div'); 
 
 let graphOptions = {
