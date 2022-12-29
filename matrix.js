@@ -11,6 +11,8 @@ function getMatrixData(n) {
     const controllability = pbhTest2(matrix, eigenValues, eigenVectors);
     const matrixHTML = matrixToLatex(matrix, eigenValues);
 
+    console.log(eigenValues)
+
     return  [graphData, matrixHTML, controllability];
 }
 
@@ -62,11 +64,8 @@ function matrixToLatex(matrix, eigenValues) {
     result += '$$\\textit{eigenvalues:}\\left\\{'
     for (let eigenValue of eigenValues) {
         result += `${Math.round(eigenValue * 100) / 100},`;
-        console.log(eigenValue, Math.round(eigenValue));
     }
     result += '\\right\\}$$'
-
-    console.log(result);
 
     return result;
 
@@ -206,10 +205,11 @@ function test() {
 
 function pbhTest(matrix) {
     const n = matrix.length;
-    const [ eigenValues, eigenVectors ] = getEigenState(matrix);
     const controlSet = getControlSet(n);
+    let [ eigenValues, eigenVectors ] = getEigenState(matrix);
     let zeroCount = 0;
 
+    eigenValues = eigenValues.map(function(x) {return Math.round(x * 1e9)/1e9});
     const eigenValuesUnique = [...new Set(eigenValues)];
     if (eigenValues.length != eigenValuesUnique.length) {
         return 'completely uncontrollable';
@@ -238,8 +238,10 @@ function pbhTest2(matrix, eigenValues, eigenVectors) {
     const controlSet = getControlSet(n);
     let zeroCount = 0;
 
+    eigenValues = eigenValues.map(function(x) {return Math.round(x * 1e9)/1e9});
     const eigenValuesUnique = [...new Set(eigenValues)];
     if (eigenValues.length != eigenValuesUnique.length) {
+        console.log('degenerate');
         return 'completely uncontrollable';
     }    
  
@@ -294,4 +296,14 @@ function getControlSet(n) {
 
     return controlSet;
 }
+
+let test_matrix = [
+    [4, -1, -1, -1, -1],
+    [-1, 3, -1, 0, -1],
+    [-1, -1, 3, 0, -1],
+    [-1, 0, 0, 1, 0],
+    [-1, -1, -1, 0, 3]
+]
+
+console.log('yo', pbhTest(test_matrix));
 
