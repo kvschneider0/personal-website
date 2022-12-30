@@ -6,12 +6,21 @@ export { getMatrixData }
 
 function getMatrixData(n) {
     const matrix = generateLaplacianMatrix(n);
-    const graphData = getPlottingData(matrix);
     const [ eigenValues, eigenVectors ] = getEigenState(matrix);
-    const controllability = pbhTest2(matrix, eigenValues, eigenVectors);
-    const matrixHTML = matrixToLatex(matrix, eigenValues);
-
-    return  [graphData, matrixHTML, controllability];
+    console.log(eigenValues)
+    // make sure graph is connected
+    const eigenValuesRemoveZero = [...eigenValues];
+    eigenValuesRemoveZero.splice(eigenValuesRemoveZero.indexOf(0), 1);
+    console.log(eigenValuesRemoveZero)
+    if (eigenValuesRemoveZero.includes(0)) {
+        return getMatrixData(n);
+    } else {
+        const graphData = getPlottingData(matrix);
+        const controllability = pbhTest2(matrix, eigenValues, eigenVectors);
+        const matrixHTML = matrixToLatex(matrix, eigenValues);
+    
+        return  [graphData, matrixHTML, controllability];
+    }
 }
 
 function getPlottingData(matrix) {
