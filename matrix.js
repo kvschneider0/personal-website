@@ -7,11 +7,9 @@ export { getMatrixData }
 function getMatrixData(n) {
     const matrix = generateLaplacianMatrix(n);
     const [ eigenValues, eigenVectors ] = getEigenState(matrix);
-    console.log(eigenValues)
     // make sure graph is connected
     const eigenValuesRemoveZero = [...eigenValues];
     eigenValuesRemoveZero.splice(eigenValuesRemoveZero.indexOf(0), 1);
-    console.log(eigenValuesRemoveZero)
     if (eigenValuesRemoveZero.includes(0)) {
         return getMatrixData(n);
     } else {
