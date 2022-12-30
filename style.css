@@ -25,6 +25,25 @@ body {
     border-radius: 50%;
 }
 
+#projects-div {
+    text-align: center;
+    display: grid;
+    position: relative;
+}
+
+#projects-div a {
+    background: #191919;
+    text-decoration: none;
+    color: #fff;
+    width: 50%;
+    padding: 3em  3em 4em;
+    margin: 10px;
+}
+
+#projects-div img {
+    width: 50%;
+}
+
 /* Nav Bar */
 
 header {
