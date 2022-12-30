@@ -1,3 +1,5 @@
+/* Home */
+
 body {
     background-color: #111;
     margin-top: 40px;
@@ -55,6 +57,11 @@ header li a img {
 
 #large-nav-entry {
     margin-right: 900px;
+}
+
+/* About Me */
+#about-header-div {
+    text-align: center;
 }
 
 /* Thesis */
