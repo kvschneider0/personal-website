@@ -64,6 +64,20 @@ header li a img {
     text-align: center;
 }
 
+#about-main-div {
+    text-align: center;
+}
+
+#mugshot {
+    float: left;
+    width: 50%;
+}
+
+#mugshot-description {
+    float: right;
+    width: 50%;
+}
+
 /* Thesis */
 
 #thesis-title-div {
