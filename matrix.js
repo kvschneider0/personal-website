@@ -14,8 +14,8 @@ function getMatrixData(n) {
         return getMatrixData(n);
     } else {
         const graphData = getPlottingData(matrix);
-        const controllability = pbhTest2(matrix, eigenValues, eigenVectors);
-        const matrixHTML = matrixToLatex(matrix, eigenValues);
+        const controllability = pbhTest(matrix, eigenValues, eigenVectors);
+        const matrixHTML = matrixToLatex(matrix, eigenValues, eigenVectors);
     
         return  [graphData, matrixHTML, controllability];
     }
@@ -49,7 +49,7 @@ function getPlottingData(matrix) {
 
 // writes LaTeX code which generates matrix 
 
-function matrixToLatex(matrix, eigenValues) {
+function matrixToLatex(matrix, eigenValues, eigenVectors) {
     const n = matrix.length;
     // draw matrix
     let result = '$$L=\\begin{bmatrix}';
@@ -65,16 +65,31 @@ function matrixToLatex(matrix, eigenValues) {
     }
     result += '\\end{bmatrix}$$';
     
-    // draw eigen values
-    result += '$$\\textit{eigenvalues:}\\left\\{'
-    for (let eigenValue of eigenValues) {
-        result += `${Math.round(eigenValue * 100) / 100},`;
+    // draw eigen vectors
+    result += '$$\\textit{eigenvectors/values:}\\hspace{0.5cm}\\left\\{'
+    for (let i = 0; i < eigenVectors.length; i++) {
+        result += `\\left(${Math.round(eigenValues[i] * 1e2) / 1e2}`;
+        result += vectorToLatex(eigenVectors[i]);
+        result += `\\right),`;
     }
     result += '\\right\\}$$'
 
     return result;
-
 }
+
+// vector to LaTeX 
+
+function vectorToLatex(vector) {
+    let result = '\\begin{bmatrix}';
+    for (const num of vector) {
+        const numRounded = Math.round(num * 1e2) / 1e2
+        result += `${numRounded}\\\\\\\\`;
+    }
+    result += '\\end{bmatrix}';
+    return result;
+}
+
+console.log('here', vectorToLatex([0.5773502691896257,0.7071067811865476,-0.40824829046386296]));
 
 // generate random Laplacian matrix
 
@@ -208,37 +223,8 @@ function test() {
 }
 // test();
 
-function pbhTest(matrix) {
-    const n = matrix.length;
-    const controlSet = getControlSet(n);
-    let [ eigenValues, eigenVectors ] = getEigenState(matrix);
-    let zeroCount = 0;
-
-    eigenValues = eigenValues.map(function(x) {return Math.round(x * 1e9)/1e9});
-    const eigenValuesUnique = [...new Set(eigenValues)];
-    if (eigenValues.length != eigenValuesUnique.length) {
-        return 'completely uncontrollable';
-    }    
- 
-    for (const controlVector of controlSet) {
-        for (const eigenVector of eigenVectors) {
-            const innerProduct = zeroFloatCorrection(math.dot(controlVector, eigenVector));
-            if (innerProduct == 0) {
-                zeroCount += 1;
-            }
-        }
-    }
-    if (zeroCount == math.pow(2, n) - 2) {
-        return 'completely uncontrollable';
-    } else if (zeroCount == 0) {
-        return 'essentially controllable';
-    } else {
-        return 'conditionally controllable';
-    }
-}
-
 // doesn't calculate estates
-function pbhTest2(matrix, eigenValues, eigenVectors) {
+function pbhTest(matrix, eigenValues, eigenVectors) {
     const n = matrix.length;
     const controlSet = getControlSet(n);
     let zeroCount = 0;
@@ -246,7 +232,7 @@ function pbhTest2(matrix, eigenValues, eigenVectors) {
     eigenValues = eigenValues.map(function(x) {return Math.round(x * 1e9)/1e9});
     const eigenValuesUnique = [...new Set(eigenValues)];
     if (eigenValues.length != eigenValuesUnique.length) {
-        return 'completely uncontrollable';
+        return 'completely uncontrollable (degenerate)';
     }    
  
     for (const controlVector of controlSet) {
@@ -258,7 +244,7 @@ function pbhTest2(matrix, eigenValues, eigenVectors) {
         }
     }
     if (zeroCount == math.pow(2, n) - 2) {
-        return 'completely uncontrollable';
+        return 'completely uncontrollable (nondegenerate)';
     } else if (zeroCount == 0) {
         return 'essentially controllable';
     } else {
