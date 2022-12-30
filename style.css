@@ -25,6 +25,20 @@ body {
     border-radius: 50%;
 }
 
+#skills-div {
+    text-align: center;
+}
+
+#skills-div img {
+    width: 100px;
+}
+
+#skills-div div {
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+}
+
 #projects-div {
     text-align: center;
     display: grid;
