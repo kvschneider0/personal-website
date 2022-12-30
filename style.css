@@ -117,3 +117,9 @@ header li a img {
     transition: 0.5s;
     z-index: 102;
 }   
+
+#thesis-thanks-div {
+    padding: 30px;
+    text-align: center;
+    text-decoration: underline;
+}

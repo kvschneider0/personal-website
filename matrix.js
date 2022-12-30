@@ -66,9 +66,9 @@ function matrixToLatex(matrix, eigenValues, eigenVectors) {
     result += '\\end{bmatrix}$$';
     
     // draw eigen vectors
-    result += '$$\\textit{eigenvectors/values:}\\hspace{0.5cm}\\left\\{'
+    result += '$$\\textit{eigenvalues/vectors:}\\hspace{0.5cm}\\left\\{'
     for (let i = 0; i < eigenVectors.length; i++) {
-        result += `\\left(${Math.round(eigenValues[i] * 1e2) / 1e2}`;
+        result += `\\left(${Math.round(eigenValues[i] * 1e2) / 1e2} ; `;
         result += vectorToLatex(eigenVectors[i]);
         result += `\\right),`;
     }
