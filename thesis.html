@@ -33,15 +33,13 @@
     </div>
       <div class="body-div" id="thesis-intro-div">
         <p>
-          In 2020 I began a mathematics research project with the University of Colorado Boulder under the mentorship of Professor Sean O'Rourke. In this study, I studied some mathematical properties of networks, or <em>graphs</em> as mathematicians prefers. Every network is either <b>essentially controllable</b>, <b>conditionally controllable</b>, or <b>completely uncontrollable</b>. What does <em>controllable</em> mean? 
-          <br>
-          Suppose each of the <em>nodes</em> below is a room in a building, and each <em>edge</em> represents two rooms being adjacent. You have control over the set temperature in some rooms, and this set temperature will affect any adjacent rooms 
-          <br>
-          There are two ways a graph can be completely controllable, either <em>degenerate</em> or <em>nondegenerate</em>
+          In 2020 I began a mathematics research project with the University of Colorado Boulder under the mentorship of Professor Sean O'Rourke. In this study, I analyzed some mathematical properties of networks, or <em>graphs</em> as mathematicians prefers. Every network is either <b>essentially controllable</b>, <b>conditionally controllable</b>, or <b>completely uncontrollable</b>. These classes refer to how many of the eigenvalues of the Laplacian matrix of the network have a zero inner product with the non-zero, non-identity binary vectors (Schneider 1.5.2). Sorry, I'm still working on a clean real world analogy for these classes. There are two ways a graph can be completely controllable, either <em>degenerate</em> or <em>nondegenerate</em>. I pondered on the difference between these two frequently during the study.
         </p>
       </div>
       <div class="body-div" id="thesis-dynamic-div">
         <div id="thesis-input-div">
+          <em>Use the following two buttons to create a random network. Below is a visual representation of the graph generated along with it's determined controllability class.</em>
+          <br>
           Generate new random graph:
           <input id="button" type="button" value="Click Me!"/>
           <br>
@@ -56,10 +54,12 @@
         <div id="thesis-latex-div"></div>
       </div>
       <div class="body-div" id="thesis-description-div">
-        <em>Abstract:</em>
-        <p>
-          In this paper, we study characterizations of controllability for Laplacian leader-follower dynamics. Our discussion relies on the classification of graphs (networks) into three controllability classes: essentially controllable, completely uncontrollable, and conditionally controllable. In particular, this paper will show characteristics of graphs and their Laplacian matrices which give rise to complete uncontrollability. The controllability classes mentioned require the additional specification of the control vectors; here, we focus on the set of binary control vectors. We show that any Laplacian matrix with repeated eigenvalues will always have completely uncontrollable Laplacian leader-follower dynamics. This fact will allow us to make several deductions regarding the controllability properties of certain graph structures. Specifically, we prove that every circulant graph will have completely uncontrollable Laplacian leader-follower dynamics. We also show that for any biregular graph, if the difference in size between the two vertex sets is greater than one, then the Laplacian leader-follower dynamics are completely uncontrollable. In addition, we prove a similar bound for bipartite graphs in general.
-        </p>
+        <div id="thesis-abstract">
+          <em>Abstract:</em>
+          <p>
+            In this paper, we study characterizations of controllability for Laplacian leader-follower dynamics. Our discussion relies on the classification of graphs (networks) into three controllability classes: essentially controllable, completely uncontrollable, and conditionally controllable. In particular, this paper will show characteristics of graphs and their Laplacian matrices which give rise to complete uncontrollability. The controllability classes mentioned require the additional specification of the control vectors; here, we focus on the set of binary control vectors. We show that any Laplacian matrix with repeated eigenvalues will always have completely uncontrollable Laplacian leader-follower dynamics. This fact will allow us to make several deductions regarding the controllability properties of certain graph structures. Specifically, we prove that every circulant graph will have completely uncontrollable Laplacian leader-follower dynamics. We also show that for any biregular graph, if the difference in size between the two vertex sets is greater than one, then the Laplacian leader-follower dynamics are completely uncontrollable. In addition, we prove a similar bound for bipartite graphs in general.
+          </p>
+        </div>
         <a href="K._Schneider_Honors_Thesis.pdf" target="_blank">
           <div id="thesis-link-div">
             <img src="./images/thesis-snipet.png">

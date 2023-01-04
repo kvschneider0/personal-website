@@ -144,6 +144,11 @@ header li a img {
     text-align: left;
 }
 
+#thesis-intro-div p {
+    width: 80%;
+    margin: auto;
+}
+
 #thesis-dynamic-div {
     width: 80%;
     margin: auto;
@@ -177,6 +182,11 @@ header li a img {
 #thesis-description-div a {
     color: #fff;
     text-decoration: none;
+}
+
+#thesis-abstract {
+    width: 80%;
+    margin: auto;
 }
 
 #thesis-link-div img {
