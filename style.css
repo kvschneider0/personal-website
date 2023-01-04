@@ -27,13 +27,22 @@ body {
 
 #skills-div {
     text-align: center;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 5px;
+    width: 800px;
+    margin: auto;
+}
+
+#skills-container {
+    padding: 20px;
 }
 
 #skills-div img {
     width: 100px;
 }
 
-#skills-div div {
+.logo {
     display: inline-block;
     width: 24%;
     text-align: center;
