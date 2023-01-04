@@ -20,10 +20,18 @@ for (i = 0; i < collapsible.length; i++) {
   });
 }
 
+// options for vis
 let graphOptions = {
     edges: {
         physics: false,
         smooth: false
+    },
+    layout: {
+      improvedLayout: true,
+    },
+    interaction: {
+      dragView: false,
+      zoomView: false
     }
 };
 
